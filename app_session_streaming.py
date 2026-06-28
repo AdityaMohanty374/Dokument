@@ -19,10 +19,7 @@ from llm import (
 )
 # session_id -> conversation
 conversations = {}
-BASE_DIR = Path(__file__).parent
-templates = Jinja2Templates(
-    directory=BASE_DIR / "templates"
-)
+
 app = FastAPI(title="Document Summarizer API")
 app.add_middleware(
     CORSMiddleware,
@@ -47,14 +44,11 @@ def get_messages(session_id: str):
     return conversations[session_id]
 
 @app.get("/")
-def home(request: Request):
-    return templates.TemplateResponse(
-        request=request,
-        name="index_new2_streaming.html",
-        context={
-            "request": request
-        }
-    )
+def home():
+    return {
+        "status": "running",
+        "message": "Dokument API is running"
+    }
 
 @app.get("/session")
 def create_session():
