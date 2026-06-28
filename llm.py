@@ -28,6 +28,7 @@ def stream_response(messages):
         top_p=config.TOP_P
     )
     for chunk in stream:
+        print(repr(chunk))
         token=chunk.choices[0].delta.content
         if token:
             yield token
