@@ -4,7 +4,7 @@ import prompts
 import config
 import os
 client = OpenAI(
-    base_url=os.environ["PROVIDER"],
+    base_url="https://api.groq.com/openai/v1",
     api_key=os.environ["GROQ_API_KEY"]
 )
 messages = [prompts.SYSTEM_PROMPT]
