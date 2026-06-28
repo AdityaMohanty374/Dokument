@@ -24,7 +24,7 @@ app = FastAPI(title="Document Summarizer API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://dokument.vercel.app"
+        "https://dokument-nu.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
