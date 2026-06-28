@@ -26,7 +26,9 @@ templates = Jinja2Templates(
 app = FastAPI(title="Document Summarizer API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://dokument.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

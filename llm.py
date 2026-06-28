@@ -4,7 +4,7 @@ import prompts
 import config
 import os
 client = OpenAI(
-    base_url="https://api.groq.com/openai/v1",
+    base_url=os.environ("PROVIDER"),
     api_key=os.environ["GROQ_API_KEY"]
 )
 messages = [prompts.SYSTEM_PROMPT]
@@ -21,7 +21,7 @@ def extract_pdf_text(file_path) -> str:
 
 def stream_response(messages):
     stream = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model=config.MODEL_2,
         messages=messages,
         stream=True,
         temperature=config.TEMPERATURE,
